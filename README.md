@@ -3,12 +3,8 @@
 
 • This repository consists of files required to deploy a ___Machine Learning Web App___ created with ___Flask___ on ___Heroku___ platform.
 
-• If you want to view the deployed model, click on the following link:<br />
+• If you wish to see the deployed model, please click on the following link.:<br />
 Deployed at: https://kalprisk-b3128c8290be.herokuapp.com/
 
-• If you are searching for __Code__. Click the link mentioned below for the same:<br />
+• If you are looking for the code, click on the link provided below for it.:<br />
 Link:  https://github.com/wkaandemir/kalprisk
-
-• Please do ⭐ the repository, if you in liked it .
-
-• Please do comment in the repository, if any bugs found .
