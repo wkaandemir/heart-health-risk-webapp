@@ -9,7 +9,7 @@ Deployed at: https://kalprisk-0c47df0c4e8c.herokuapp.com/
 • If you are searching for __Code__. Click the link mentioned below for the same:<br />
 Link:  https://github.com/wkaandemir/kalprisk
 
-• Please do ⭐ the repository, if you in liked it .
+• If you liked the repository, please give it a star.
 
-• Please do comment in the repository, if any bugs found .
+• If you come across any bugs, issues, or problems, please leave a comment on the repository. Your feedback will help improve the project.
  
