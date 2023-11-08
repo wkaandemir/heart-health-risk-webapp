@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+			<link rel="shortcut icon" href="{{ url_for('static', filename='ipl-favicon.ico') }}">
+
+		<title>Kalp Hastalığı Testi</title>
+	</head>
+    <body>
+		<div class="ml-container" style="display: block;">
+	   <a href="https://github.com/wkaandemir/kalprisk" target="_blank" class="github-corner" title="View source on GitHub">
+			 <svg data-toggle="tooltip"
+			 data-placement="left" width="80" height="80" viewBox="0 0 250 250"
+		   style="fill:#e50914; color:#fff; position: fixed;z-index:100; top: 0; border: 0; right: 0;" aria-hidden="true">
+		   <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+		   <path
+			 d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+			 fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+		   <path
+			 d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+			 fill="currentColor" class="octo-body"></path>
+			 </svg>
+		   </a>
+	   <!-- Website Title -->
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container">
+				<a class="navbar-brand" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+					<path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+				</svg>
+				Kalp Hastalığı Web Uygulaması</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+
+		</nav>
+		<div class="container">
+
+			<div class="card  mt-4">
+				<div class="card-header">
+					Kalp hastalığı riskinizi öğrenmek için bu başvuru formunu doldurun
+				</div>
+				<div class="card-body">
+					<form action="{{url_for('predict')}}" method="POST">
+
+						<div class="form-group  row">
+							<div class="col-sm-3">
+								<label for="age">Yaş</label>
+								<input type="number" class="form-control" id="age" name="age" required>
+							</div>
+							<div class="col-sm-3">
+								<label for="sex">Cinsiyet</label>
+								<select class="form-control" id="sex" name="sex" required>
+									<option disabled selected value> -- Bir seçenek seçin -- </option>
+									<option value="0">Erkek</option>
+									<option value="1">Kadın</option>
+								</select>
+							</div>
+						</div>
+						<br>
+						<div class="form-group  row">
+							<div class="col-sm">
+								<label for="cp">Göğüs Ağrısı Türü</label>
+								<select class="form-control" id="cp" name="cp" required>
+									<option disabled selected value> -- Bir seçenek seçin -- </option>
+									<option value="1">Tipik Angina</option>
+									<option value="2">Atipik Angina</option>
+									<option value="3">Anjinal Olmayan Ağrı</option>
+									<option value="4">Asemptomatik</option>
+								</select>
+							</div>
+							<div class="col-sm">
+								<label for="trestbps">Dinlenme Kan Basıncı mm Hg</label>
+								<input type="number" class="form-control" id="trestbps" name="trestbps" required>
+							</div>
+							<div class="col-sm">
+								<label for="chol">Serum Kolesterolü mg/dl</label>
+								<input type="number" class="form-control" id="chol" name="chol" required>
+							</div>
+							<div class="col-sm">
+								<label for="fbs">Açlık Kan Şekeri > 120 mg/dl</label>
+								<select class="form-control" id="fbs" name="fbs" required>
+									<option disabled selected value> -- Bir seçenek seçin -- </option>
+									<option value="0">Yanlış</option>
+									<option value="1">Doğru</option>
+								</select>
+							</div>
+						</div>
+
+						<br>
+						<div class="form-group row">
+							<div class="col-sm">
+								<label for="restecg">EKG Dinlenme Sonuçları </label>
+								<select class="form-control" id="restecg" name="restecg" required>
+									<option disabled selected value> -- Bir seçenek seçin -- </option>
+									<option value="0">Normal</option>
+									<option value="1">ST-T Dalga Anormalliği Olması </option>
+									<option value="2"> Olası veya Kesin Sol Ventrikül Hipertrofisi </option>
+								</select>
+							</div>
+							<div class="col-sm">
+								<label for="thalach">Maksimum Kalp Atış Hızı</label>
+								<input type="number" class="form-control" id="thalach" name="thalach" required>
+							</div>
+							<div class="col-sm">
+								<label for="exang">Egzersize Bağlı Angina</label>
+								<select class="form-control" id="exang" name="exang" required>
+									<option disabled selected value> -- Bir seçenek seçin -- </option>
+									<option value="0">Hayır</option>
+									<option value="1">Evet</option>
+								</select>
+							</div>
+							<div class="col-sm">
+								<label for="oldpeak">ST Depresyonu Kaynaklı</label>
+								<input type="number" step="any" class="form-control" id="oldpeak" name="oldpeak" required>
+
+							</div>
+
+						</div>
+						<br>
+						<div class="form-group  row">
+							<div class="col-sm">
+								<label for="slope">Zirve Egzersizi ST Segmentinin Eğimi </label>
+								<select class="form-control" id="slope" name="slope" required>
+									<option disabled selected value> -- Bir seçenek seçin -- </option>
+									<option value="1">Yukarı Eğimli</option>
+									<option value="2">Düz</option>
+									<option value="3">Aşağı Eğimli</option>
+								</select>
+							</div>
+							<div class="col-sm">
+								<label for="ca">Flourosopy ile Renklendirilen Kap Sayısı</label>
+								<select class="form-control" id="ca" name="ca" required>
+									<option disabled selected value> -- Bir seçenek seçin -- </option>
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</div>
+							<div class="col-sm">
+								<label for="thal">Talasemi</label>
+								<select class="form-control" id="thal" name="thal" required>
+									<option disabled selected value> -- Bir seçenek seçin -- </option>
+									<option value="3">Normal</option>
+									<option value="6">Sabit Kusur</option>
+									<option value="7">Tersine Çevrilebilir Kusur</option>
+								</select>
+							</div>
+						</div>
+						<br>
+						<div class="form-group">
+							<input class="btn btn-primary" type="submit" value="Submit">
+						</div>
+
+						<!--Prediction Result-->
+						<div id="Gönder">
+							<strong style="color:red">{{result}}</strong>
+						</div>
+
+
+					</form>
+				</div>
+			</div>
+
+
+		</div>
+
+		<!-- Optional JavaScript; choose one of the two! -->
+
+		<!-- Option 1: Bootstrap Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+			crossorigin="anonymous"></script>
+
+		<!-- Option 2: Separate Popper and Bootstrap JS -->
+		<!--
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+		-->
+	</body>
+
+</html>
