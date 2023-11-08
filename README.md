@@ -12,4 +12,3 @@ Link:  https://github.com/wkaandemir/kalprisk
 • Please do ⭐ the repository, if you in liked it .
 
 • Please do comment in the repository, if any bugs found .
-bu cümleleri daha detaylı yaz
