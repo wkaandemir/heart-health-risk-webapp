@@ -7,4 +7,4 @@
 Deployed at: https://kalprisk-b3128c8290be.herokuapp.com/
 
 • If you are looking for the code, click on the link provided below for it.:<br />
-Link:  https://github.com/wkaandemir/kalprisk
+Link: https://github.com/wkaandemir/heart.health.risk.webapp
