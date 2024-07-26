@@ -69,4 +69,5 @@ Ensure your project directory has the following structure:
 #### Conclusion
 
 Following these steps, you should be able to set up and run the Health Literacy web application on your local machine using Docker. If you encounter any issues or have questions, feel free to reach out for support.
+![image](https://github.com/user-attachments/assets/1403f335-7964-46d0-bb6b-15c496ff61c3)
 
