@@ -1,3 +1,4 @@
+#app.py
 import numpy as np
 import pickle
 from flask import Flask, request, render_template
@@ -50,5 +51,4 @@ def predict():
         return render_template('index.html', error_message=error_message)
 
 if __name__ == '__main__':
-    # Run the application
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
